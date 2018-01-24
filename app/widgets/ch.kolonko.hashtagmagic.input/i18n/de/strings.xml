@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- hint -->
+	<string name="ch_kolonko_hashtagmagic_hint_hashtag">hashtag1 hashtag2...</string>
+	<string name="ch_kolonko_hashtagmagic_hint_group">group name</string>
+	
+</resources>

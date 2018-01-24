@@ -1,0 +1,48 @@
+<Alloy>
+	<View id="favoriteGroupDialog">
+		<View class="dialog-background" onClick="onCancel" />
+		<View id="dialogContent" class="dialog-content">
+			<Widget id="groupInput" src="ch.kolonko.hashtagmagic.input" top="0" hint="ch_kolonko_hashtagmagic_hint_group" onClick="onCreateGroup" />
+			<ListView onItemclick="onSelectOption" top="52" bottom="56">
+				<Templates>
+					<ItemTemplate name="group-tmpl" height="40" backgroundColor="transparent">
+						<Label bindId="optionIcon" class="material-icon" color="Alloy.Globals.Colors.BLACK_10" text="\ue876" />
+						<Label bindId="optionLabel" class="option-label" />
+					</ItemTemplate>
+					<ItemTemplate name="group-delete-tmpl" height="40" backgroundColor="transparent">
+						<Label bindId="optionIcon" class="material-icon" color="Alloy.Globals.Colors.BLACK_10" text="\ue876" />
+						<Label bindId="optionLabel" class="option-label" />
+						<View bindId="deleteIcon" class="delete-icon">
+							<Label class="material-icon--dark" text="\ue872" />
+						</View>
+					</ItemTemplate>
+					<ItemTemplate name="group-selected-tmpl" height="40" backgroundColor="white">
+						<Label bindId="optionIcon" class="material-icon" color="Alloy.Globals.Colors.ACCENT" text="\ue876" />
+						<Label bindId="optionLabel" class="option-label" />
+					</ItemTemplate>
+					<ItemTemplate name="empty-group-tmpl">
+						<View>
+							<View layout="vertical" height="Titanium.UI.SIZE">
+								<Label class="material-icon--empty" text="\ue814" />
+								<Label class="empty-group-label" text="L('empty_group_collection')" />
+							</View>
+						</View>
+					</ItemTemplate>
+				</Templates>
+				<ListSection dataCollection="Alloy.Collections.groups" dataTransform="dataTransform">
+					<ListItem template="{template}" backgroundColor="{backgroundColor}" optionIcon:color="{iconColor}" optionLabel:text="{label}" />
+				</ListSection>
+			</ListView>
+			<View class="dialog-footer" bottom="0">
+				<View class="dialog-footer__content">
+					<View class="dialog-button" right="8dp" onClick="onCancel">
+						<Label id="btnCancel" class="btn-label" zIndex="1" touchEnabled="false" />
+					</View>
+					<View class="dialog-button" onClick="onSave">
+						<Label id="btnOk" class="btn-label" zIndex="1" touchEnabled="false" />
+					</View>
+				</View>
+			</View>
+		</View>
+	</View>
+</Alloy>

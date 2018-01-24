@@ -1,0 +1,84 @@
+'.dialog-background':{
+	backgroundColor:Alloy.Globals.Colors.BLACK_50
+}
+
+'.dialog-content':{
+	right:56,
+	left:56,
+	borderRadius:22,
+	borderWidth: 0,
+	backgroundColor: Alloy.Globals.Colors.WINDOW_BACKGROUND
+}
+
+'.material-icon':{
+	left: 16,
+	font:{
+		fontSize: Alloy.Globals.Font.DISPLAY,
+		fontFamily: 'MaterialIcons-Regular'
+	}
+}
+
+'.material-icon--dark':{
+	color: Alloy.Globals.Colors.BLACK_70,
+	font:{
+		fontSize: Alloy.Globals.Font.TITLE,
+		fontFamily: 'MaterialIcons-Regular'
+	}
+}
+
+'.option-label':{
+	left: 60,
+	color: Alloy.Globals.Colors.PRIMARY_DARK
+}
+
+'.delete-icon':{
+	width: 40,
+	height: 40,
+	right: 0
+}
+
+'.material-icon--empty':{
+	color: Alloy.Globals.Colors.BLACK_10,
+	font:{
+		fontSize: 100,
+		fontFamily: 'MaterialIcons-Regular'
+	}
+}
+
+'.empty-group-label':{
+	color: Alloy.Globals.Colors.BLACK_30,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+'.dialog-footer': {
+	width: Ti.UI.SIZE,
+	height: 52,
+	right: 16,
+	layout: 'horizontal'
+}
+
+'.dialog-footer__content': {
+	width: Ti.UI.SIZE,
+	layout: 'horizontal',
+	right: 0
+}
+
+'.dialog-button':{
+	backgroundSelectedColor: Alloy.Globals.Colors.ACCENT_LIGHT,
+	height: 36,
+	width: Titanium.UI.SIZE,
+	borderRadius: 4
+}
+
+'.btn-label':{
+	width: Titanium.UI.SIZE,
+	color: Alloy.Globals.Colors.PRIMARY_DARK,
+	font: {
+		fontSize: Alloy.Globals.Font.BUTTON
+	},
+	left: 16,
+	right: 16
+}
+'.btn-label[platform=ios]':{
+	color: Alloy.Globals.Colors.PRIMARY
+}

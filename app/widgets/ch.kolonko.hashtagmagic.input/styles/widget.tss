@@ -1,0 +1,28 @@
+'#topView':{
+	height:44,
+	borderRadius: 22,
+	borderWidth: 0,
+	backgroundColor: Alloy.Globals.Colors.PRIMARY_LIGHT
+}
+
+'.textfield':{
+	left: 16,
+	right:60
+}
+'.label--selected':{
+	color: Alloy.Globals.Colors.TEXT_PRIMARY
+}
+
+'.icon':{
+	width:44,
+	height:44,
+	borderWidth: 0,
+	borderRadius: 22
+}
+
+'.material-icon':{
+	font:{
+		fontSize: Alloy.Globals.Font.DISPLAY,
+		fontFamily: 'MaterialIcons-Regular'
+	}
+}

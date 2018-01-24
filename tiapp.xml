@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>ch.kolonko.ig_hashtagmagic</id>
+    <name>Hashtag Magic</name>
+    <version>1.1.4</version>
+    <publisher>marcin</publisher>
+    <url/>
+    <description/>
+    <copyright>2017 by marcin</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>ddd5f415-4c5c-4f5b-9fff-e1caf9df04ac</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="run-on-main-thread" type="bool">true</property>
+    <ios>
+        <enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+        <use-app-thinning>true</use-app-thinning>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+                <key>CFBundleVersion</key>
+                <string>8</string>
+            </dict>
+        </plist>
+    </ios>
+    <property name="app-version-code" type="string">8</property>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:versionCode="8" package="ch.kolonko.ig_hashtagmagic">
+            <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27"/>
+            <application android:debuggable="false"
+                android:icon="@drawable/appicon"
+                android:label="Hashtag Magic"
+                android:name="HashtagMagicApplication"
+                android:resizeableActivity="false" android:theme="@style/Theme.HashtagMagic">
+                <activity
+                    android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density"
+                    android:label="@string/app_name"
+                    android:name=".HashtagMagicActivity" android:theme="@style/Theme.Titanium">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                </activity>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density" android:name="org.appcelerator.titanium.TiActivity"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density"
+                    android:name="org.appcelerator.titanium.TiTranslucentActivity" android:theme="@style/Theme.Titanium.Translucent"/>
+                <activity android:configChanges="screenSize|density" android:name="ti.modules.titanium.ui.android.TiPreferencesActivity"/>
+                <provider
+                    android:authorities="ch.kolonko.ig_hashtagmagic.tifileprovider"
+                    android:exported="false"
+                    android:grantUriPermissions="true" android:name="org.appcelerator.titanium.io.TiFileProvider"/>
+                <service android:exported="false" android:name="com.appcelerator.aps.APSAnalyticsService"/>
+            </application>
+        </manifest>
+    </android>
+    <modules/>
+    <deployment-targets>
+        <target device="iphone">false</target>
+        <target device="ipad">false</target>
+        <target device="android">true</target>
+        <target device="windows">false</target>
+    </deployment-targets>
+    <sdk-version>7.0.1.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">5a46c073e88fa063ca1abdf4</property>
+</ti:app>

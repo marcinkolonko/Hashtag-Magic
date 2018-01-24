@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="topView" onClick="_onClick">
+		<Label id="label" class="label" />
+		<Widget id="iconWidget" src="ch.kolonko.hashtagmagic.icon" backgroundColor="Alloy.Globals.Colors.PRIMARY" touchFeedbackColor="Alloy.Globals.Colors.PRIMARY_LIGHT" />
+	</View>
+</Alloy>

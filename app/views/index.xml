@@ -1,0 +1,19 @@
+<Alloy>
+	<Window onPostlayout="onPostLayout">
+		<View class="content">
+			<Label id="appVersion" />
+			<ImageView id="imgLogo" top="10" height="95" opacity="0" image="/images/img_logo.png" />
+			<Widget id="favoritesDropdown" src="ch.kolonko.hashtagmagic.dropdown" bottom="10" onShowFavorites="onShowFavorites" />
+			<View id="hashtagBox" class="box">
+				<ScrollView>
+					<Widget id="hashtagInput" src="ch.kolonko.hashtagmagic.input" bottom="6" onClick="onCreateHashtag" />
+					<View id="availableHashtagContainer" class="hashtag-container" dataCollection="Alloy.Collections.hashtags">
+						<Widget src="ch.kolonko.textchip" modelId="{alloy_id}" label="{label}" />
+					</View>
+				</ScrollView>
+				<ImageView id="imgEmptyHashtag" class="img-empty" image="/images/img_empty.png" />
+				<Widget id="optionsWidget" src="ch.kolonko.hashtagmagic.options" onSave="onOpenSaveToGroupDialog" />
+			</View>
+		</View>
+	</Window>
+</Alloy>

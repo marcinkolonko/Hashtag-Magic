@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- buttons -->
+	<string name="btn_ok">Ok</string>
+	<string name="btn_save">Speichern</string>
+	<string name="btn_cancel">Abbrechen</string>
+	
+	<!-- dialog -->
+	<string name="dialog_save_hashtag_title">Auswahl speichern</string>
+	<string name="dialog_save_hashtag_message">Bitte benenne deine Hashtag Auswahl</string>
+	<string name="dialog_not_valid_hashtag_title">Hinweis</string>
+	<string name="dialog_not_valid_hashtag_message">Es muss mindestens ein Hashtag markiert sein</string>
+	
+	<!-- dialog -->
+	<string name="empty_group_collection">Mit dem oberen Textfeld\nkannst du neue Gruppen anlegen</string>
+	
+</resources>

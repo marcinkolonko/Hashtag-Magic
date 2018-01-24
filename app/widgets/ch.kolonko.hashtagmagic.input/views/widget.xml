@@ -1,0 +1,6 @@
+<Alloy>
+	<View id="topView">
+		<TextField id="textField" class="textfield" onFocus="onFocus" />
+		<Widget id="iconWidget" src="ch.kolonko.hashtagmagic.icon" backgroundColor="Alloy.Globals.Colors.ACCENT" touchFeedbackColor="Alloy.Globals.Colors.SECONDARY_LIGHT" onClick="onClick" />
+	</View>
+</Alloy>

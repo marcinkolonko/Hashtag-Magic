@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- buttons -->
+	<string name="btn_ok">Ok</string>
+	<string name="btn_save">save</string>
+	<string name="btn_cancel">cancel</string>
+	
+	<!-- dialog -->
+	<string name="dialog_save_hashtag_title">Save selection</string>
+	<string name="dialog_save_hashtag_message">Please give your hashtag selection a name</string>
+	<string name="dialog_not_valid_hashtag_title">Not yet…</string>
+	<string name="dialog_not_valid_hashtag_message">You have to select at least one hashtag</string>
+	
+	<!-- dialog -->
+	<string name="empty_group_collection">Add new groups with\nthe text field above</string>
+	
+</resources>

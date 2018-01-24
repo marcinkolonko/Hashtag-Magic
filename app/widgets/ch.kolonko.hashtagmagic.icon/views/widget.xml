@@ -1,0 +1,5 @@
+<Alloy>
+	<View id="topView" class="icon" touchFeedback="true" onClick="onClick">
+		<Label id="label" class="material-icon" />
+	</View>
+</Alloy>

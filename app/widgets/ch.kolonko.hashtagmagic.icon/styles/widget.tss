@@ -1,0 +1,12 @@
+'.icon':{
+	width:44,
+	height:44,
+	borderRadius: 22,
+}
+
+'.material-icon':{
+	font:{
+		fontSize: Alloy.Globals.Font.DISPLAY,
+		fontFamily: 'MaterialIcons-Regular'
+	}
+}

@@ -1,0 +1,16 @@
+{
+    "global": {},
+    "env:development": {},
+    "env:test": {},
+    "env:production": {},
+    "os:android": {},
+    "os:ios": {},
+    "os:windows": {},
+    "dependencies": {
+        "ch.kolonko.hashtagmagic.dropdown": "1.0",
+        "ch.kolonko.hashtagmagic.input": "1.0",
+        "ch.kolonko.textchip": "1.0",
+        "ch.kolonko.hashtagmagic.icon": "1.0",
+        "ch.kolonko.hashtagmagic.options": "1.0"
+    }
+}

@@ -1,0 +1,36 @@
+'.content':{
+	layout:'vertical'
+}
+
+'#appVersion':{
+	right:4,
+	color: Alloy.Globals.Colors.BLACK_30,
+	font: {
+		fontSize: Alloy.Globals.Font.CAPTION,
+		fontFamily: 'Roboto-Regular'
+	}
+}
+
+'.box':{
+	right:16,
+	left:16,
+	borderRadius:22,
+	borderWidth: 0,
+	bottom:10,
+	backgroundColor: 'white',
+	elevation: Alloy.Globals.Elevation.CARD
+}
+
+'.hashtag-container':{
+	left:8,
+	right:8,
+	height: Titanium.UI.SIZE,
+	layout:'horizontal'
+}
+
+'.img-empty':{
+	width: 90,
+	opacity:0,
+	touchEnabled: false
+}
+

@@ -1,0 +1,20 @@
+'.chip':{
+	height: 35,
+	width: Ti.UI.SIZE,
+	top:4,
+	bottom:4,
+	left:4,
+	right:4,
+	borderWidth:1,
+	borderRadius:8,
+	backgroundColor: Alloy.Globals.Colors.CHIP_BACKGROUND,
+	elevation: Alloy.Globals.Elevation.CARD
+}
+
+'Label':{
+	left:8,
+	right:8,
+	width: Titanium.UI.SIZE,
+	color: Alloy.Globals.Colors.PRIMARY_DARK
+}
+

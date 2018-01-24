@@ -1,0 +1,13 @@
+'#topView':{
+	bottom:0,
+	height: 44
+}
+
+'#options':{
+	left:0,
+	borderWidth:0,
+	borderRadius:22,
+	width: Titanium.UI.SIZE,
+	visible:false,
+	backgroundColor: Alloy.Globals.Colors.PRIMARY_LIGHT
+}

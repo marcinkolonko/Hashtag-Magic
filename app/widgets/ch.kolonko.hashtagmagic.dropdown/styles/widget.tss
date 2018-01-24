@@ -1,0 +1,15 @@
+'#topView':{
+	height:44,
+	left:16,
+	right:16,
+	borderRadius: 22,
+	backgroundColor: Alloy.Globals.Colors.PRIMARY_LIGHT
+}
+
+'.label':{
+	left: 20,
+	right:60,
+	touchEnabled: false,
+	wordWrap: false,
+	ellipsize: true
+}

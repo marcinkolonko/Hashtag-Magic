@@ -1,0 +1,34 @@
+'Window':{
+	windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN | Ti.UI.Android.SOFT_INPUT_ADJUST_PAN
+}
+
+'ScrollView':{
+	scrollType: 'vertical',
+	layout: 'vertical'
+}
+
+'Label':{
+	touchEnabled: false,
+	color: Alloy.Globals.Colors.TEXT_PRIMARY,
+	font:{
+		fontSize: Alloy.Globals.Font.BODY,
+		fontFamily: 'Roboto-Regular'
+	}
+}
+
+'TextField':{
+	color: Alloy.Globals.Colors.TEXT_PRIMARY,
+	hintTextColor: Alloy.Globals.Colors.TEXT_SECONDARY,
+	font:{
+		fontSize: Alloy.Globals.Font.BODY,
+		fontFamily: 'Roboto-Regular'
+	}
+}
+
+'.material-icon':{
+	touchEnabled: false,
+	font:{
+		fontSize: Alloy.Globals.Font.BODY,
+		fontFamily: 'MaterialIcons-Regular'
+	}
+}
