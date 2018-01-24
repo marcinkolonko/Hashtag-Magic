@@ -39,13 +39,13 @@
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
                 <key>CFBundleVersion</key>
-                <string>8</string>
+                <string>9</string>
             </dict>
         </plist>
     </ios>
-    <property name="app-version-code" type="string">8</property>
+    <property name="app-version-code" type="string">9</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="8" package="ch.kolonko.ig_hashtagmagic">
+        <manifest android:versionCode="9" package="ch.kolonko.ig_hashtagmagic">
             <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27"/>
             <application android:debuggable="false"
                 android:icon="@drawable/appicon"
