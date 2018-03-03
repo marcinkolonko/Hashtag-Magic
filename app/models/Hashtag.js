@@ -22,6 +22,9 @@ exports.definition = {
 	},
 	extendCollection: function(Collection) {
 		_.extend(Collection.prototype, {
+			comparator: function(tag) {
+				return tag.get('sortKey');
+			}
 			// extended functions and properties go here
 
 			// For Backbone v1.1.2, uncomment the following to override the

@@ -30,13 +30,22 @@ function onMoveDown(e)
 	if(sortKey < Alloy.Collections.hashtags.length - 2){
 		var tag2 = Alloy.Collections.hashtags.at(sortKey + 1);
 		var db = Ti.Database.open('_alloy_');
-		db.execute('BEGIN');
-		db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey + 1,tag.id);
-		db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey,tag2.id);
-		db.execute('COMMIT');
-		db.close();
-		
-		Alloy.Collections.hashtags.fetch();
+		try{
+			db.execute('BEGIN');
+			db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey + 1,tag.id);
+			db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey,tag2.id);
+			db.execute('COMMIT');
+			
+			tag.set({sortKey:sortKey + 1}, {silent:true});
+			tag2.set({sortKey:sortKey}, {silent:true});
+			Alloy.Collections.hashtags.sort();
+		}
+		catch(e){
+			throw 'error update sortKey';
+		}
+		finally{
+			db.close();
+		}
 	}
 }
 
@@ -48,18 +57,28 @@ function onMoveUp(e)
 	if(sortKey > 0){
 		var tag2 = Alloy.Collections.hashtags.at(sortKey - 1);
 		var db = Ti.Database.open('_alloy_');
-		db.execute('BEGIN');
-		db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey - 1,tag.id);
-		db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey,tag2.id);
-		db.execute('COMMIT');
-		db.close();
-		
-		Alloy.Collections.hashtags.fetch();
+		try{
+			db.execute('BEGIN');
+			db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey - 1,tag.id);
+			db.execute('update Hashtag set sortKey=? where alloy_id=?',sortKey,tag2.id);
+			db.execute('COMMIT');
+			
+			tag.set({sortKey:sortKey - 1}, {silent:true});
+			tag2.set({sortKey:sortKey}, {silent:true});
+			Alloy.Collections.hashtags.sort();
+		}
+		catch(e){
+			throw 'error update sortKey';
+		}
+		finally{
+			db.close();
+		}
 	}
 }
 
 function dataFilter(col)
 {
+	console.log('*** dataFilter');
 	var selected = col.where({flagSelected:1});
 	if(selected.length > 0){
 		selected.unshift({template:'top-margin'});

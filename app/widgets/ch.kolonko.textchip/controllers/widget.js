@@ -14,17 +14,17 @@ function onClick(e)
 	if(Alloy.Globals.flagDelete === true){
 		var groups = Alloy.Collections.groups.where({flagSelected:1});
 		if(groups.length > 0){
-			var tagIds;
-			groups.forEach(function(group){
-				tagIds = group.get('tag_ids');
-				tagIds = tagIds ? tagIds.split(',') : [];
-				tagIds = tagIds.reduce(function(ids,id){
-					if(id !== _model.id) ids.push(id);
-					return ids;
-				},[]);
-				group.save({tag_ids:tagIds.join(',')});
-			});
-			Alloy.Collections.hashtags.remove(_model);
+			var db = Ti.Database.open('_alloy_');
+			try{
+				groups.forEach(function(group){
+					db.execute('DELETE FROM HashtagGroup_Hashtag WHERE groupId="' + group.id + '" AND tagId="' + _model.id + '";');
+				});
+				Alloy.Collections.hashtags.remove(_model);
+			}
+			catch(e){}
+			finally{
+				db.close();
+			}
 		}
 		else{
 			_model.destroy();
