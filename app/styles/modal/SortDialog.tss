@@ -1,0 +1,32 @@
+'.content':{
+	layout:'vertical'
+}
+
+'.actions':{
+	right: 0,
+	borderRadius: 22,
+	borderWidth: 0,
+	width: Titanium.UI.SIZE,
+	backgroundColor: '#dadada',
+	layout: 'horizontal'
+}
+
+'.tag-label':{
+	left: 16,
+	right: 90,
+	wordWrap: false,
+	ellipsize: true,
+	color: Alloy.Globals.Colors.PRIMARY_DARK,
+	touchEnabled: false
+}
+
+'.listitem':{
+	left: 16,
+	right: 16,
+	height: 44,
+	bottom: 10,
+	borderRadius: 22,
+	borderWidth: 0,
+	backgroundColor: Alloy.Globals.Colors.CHIP_BACKGROUND,
+	elevation: Alloy.Globals.Elevation.CARD
+}

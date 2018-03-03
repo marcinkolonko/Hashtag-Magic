@@ -2,6 +2,7 @@
 	<View id="topView">
 		<View id="options">
 			<Widget id="favoriteIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onSaveToGroup" />
+			<Widget id="filterIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onFilterTags" />
 			<Widget id="stopIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onStopDelete" />
 			<Widget id="deleteIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onStartDelete" />
 			<Widget id="resetIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onReset" />

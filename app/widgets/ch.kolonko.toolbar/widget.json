@@ -1,0 +1,13 @@
+{
+	"id": "ch.kolonko.toolbar",
+	"name": "toolbar",
+	"description" : "adds a toolbar with left/right icons, extended or standard - title position depending on the extended property.",
+	"author": "",
+	"version": "1.0",
+	"copyright":"Copyright (c) 2016",
+	"license":"Public Domain",
+	"min-alloy-version": "1.0",
+	"min-titanium-version":"2.1",
+	"tags":"",
+	"platforms":"ios,android"
+}

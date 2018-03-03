@@ -1,0 +1,16 @@
+<Alloy>
+	<Window onClose="onClose">
+		<View class="content">
+			<Widget id="toolbar" src="ch.kolonko.toolbar" theme="light" />
+			<ScrollView dataCollection="Alloy.Collections.hashtags" dataTransform="dataTransform" dataFilter="dataFilter">
+				<View class="listitem" top="{top}" bottom="{bottom}">
+					<View class="actions">
+						<Widget id="iconDown" src="ch.kolonko.hashtagmagic.icon" backgroundColor="#dadada" data="{alloy_id}" icon="\ue313" onClick="onMoveDown" />
+						<Widget id="iconUp" src="ch.kolonko.hashtagmagic.icon" backgroundColor="#dadada" data="{alloy_id}" icon="\ue316" onClick="onMoveUp" />
+					</View>
+					<Label class="tag-label" text="{name}" />
+				</View>
+			</ScrollView>
+		</View>
+	</Window>
+</Alloy>

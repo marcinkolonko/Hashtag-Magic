@@ -8,10 +8,6 @@ var _args = arguments[0] || {};
 			touchFeedbackColor: Alloy.Globals.Colors.SECONDARY_LIGHT
 		},
 		label:{
-			font:{
-				fontSize: Alloy.Globals.Font.HEADLINE,
-				fontFamily: 'MaterialIcons-Regular'
-			},
 			color: Alloy.Globals.Colors.PRIMARY,
 			text: '\ue14d'
 		}
@@ -19,45 +15,36 @@ var _args = arguments[0] || {};
 	$.favoriteIconWidget.applyProperties({
 		icon:{
 			left:0,
-			backgroundColor: Alloy.Globals.Colors.PRIMARY,
-			touchFeedbackColor: Alloy.Globals.Colors.PRIMARY_LIGHT
 		},
 		label:{
-			font:{
-				fontSize: Alloy.Globals.Font.HEADLINE,
-				fontFamily: 'MaterialIcons-Regular'
-			},
-			color: 'white',
+			color: '#fff',
 			text: '\ue87d'
+		}
+	});
+	$.filterIconWidget.applyProperties({
+		icon:{
+			left:0,
+		},
+		label:{
+			color: '#fff',
+			text: '\ue152'
 		}
 	});
 	$.resetIconWidget.applyProperties({
 		icon:{
 			left:0,
-			backgroundColor: Alloy.Globals.Colors.PRIMARY,
-			touchFeedbackColor: Alloy.Globals.Colors.PRIMARY_LIGHT
 		},
 		label:{
-			font:{
-				fontSize: Alloy.Globals.Font.HEADLINE,
-				fontFamily: 'MaterialIcons-Regular'
-			},
-			color: 'white',
+			color: '#fff',
 			text: '\ue14c'
 		}
 	});
 	$.deleteIconWidget.applyProperties({
 		icon:{
 			left:0,
-			backgroundColor: Alloy.Globals.Colors.PRIMARY,
-			touchFeedbackColor: Alloy.Globals.Colors.PRIMARY_LIGHT
 		},
 		label:{
-			font:{
-				fontSize: Alloy.Globals.Font.HEADLINE,
-				fontFamily: 'MaterialIcons-Regular'
-			},
-			color: 'white',
+			color: '#fff',
 			text: '\ue872'
 		}
 	});
@@ -65,15 +52,11 @@ var _args = arguments[0] || {};
 		icon:{
 			left:0,
 			visible: false,
-			backgroundColor: 'red',
+			backgroundColor: '#ff0000',
 			touchFeedbackColor: 'pink'
 		},
 		label:{
-			font:{
-				fontSize: Alloy.Globals.Font.HEADLINE,
-				fontFamily: 'MaterialIcons-Regular'
-			},
-			color: 'white',
+			color: '#fff',
 			text: '\ue14b'
 		}
 	});
@@ -104,6 +87,11 @@ function onSaveToGroup(e)
 	}
 }
 
+function onFilterTags(e)
+{
+	Alloy.createController('modal/SortDialog').getView().open();
+}
+
 function onReset(e)
 {
 	Ti.UI.Clipboard.clearText();
@@ -117,7 +105,7 @@ function onStartDelete(e)
 	Alloy.Collections.hashtags.trigger('change');
 	
 	$.deleteIconWidget.reset(true);
-	$.stopIconWidget.getView().left = 96;
+	$.stopIconWidget.getView().left = 140;
 	$.stopIconWidget.getView().visible = true;
 }
 
@@ -128,7 +116,7 @@ function onStopDelete(e)
 	
 	setTimeout(function(){
 		$.stopIconWidget.reset(true);
-		$.deleteIconWidget.getView().left = 96;
+		$.deleteIconWidget.getView().left = 140;
 		$.deleteIconWidget.getView().visible = true;
 	},300);
 }
@@ -146,9 +134,12 @@ function showOptions()
 	$.options.visible = true;
 	
 	setTimeout(function(){
-		$.resetIconWidget.getView().left = 44;
-	},200);
+		$.filterIconWidget.getView().left = 44;
+	},300);
 	setTimeout(function(){
-		$.deleteIconWidget.getView().left = 96;
-	},400);
+		$.resetIconWidget.getView().left = 88;
+	},600);
+	setTimeout(function(){
+		$.deleteIconWidget.getView().left = 140;
+	},900);
 }

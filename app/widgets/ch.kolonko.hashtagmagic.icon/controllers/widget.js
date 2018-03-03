@@ -11,11 +11,14 @@ var _args = arguments[0] || {};
 	if(_args.touchFeedbackColor !== undefined){
 		$.topView.touchFeedbackColor = _args.touchFeedbackColor;
 	}
+	if(_args.icon){
+		$.label.text = _args.icon;
+	}
 })();
 
 function onClick(e)
 {
-	$.trigger('click');
+	$.trigger('click', {data:_args.data});
 }
 
 /**

@@ -7,6 +7,7 @@
     "os:ios": {},
     "os:windows": {},
     "dependencies": {
+        "ch.kolonko.toolbar": "1.0",
         "ch.kolonko.hashtagmagic.dropdown": "1.0",
         "ch.kolonko.hashtagmagic.input": "1.0",
         "ch.kolonko.textchip": "1.0",

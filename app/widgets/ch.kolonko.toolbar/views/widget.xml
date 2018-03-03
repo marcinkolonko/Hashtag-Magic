@@ -1,0 +1,27 @@
+<Alloy>
+	<Collection id="rightIcons" src="Icon" instance="true"/>
+	<Collection id="leftIcon" src="Icon" instance="true"/>
+	<Collection id="tabs" src="Tab" instance="true"/>
+	<View id="toolbar" class="toolbar">
+		<View id="statusbar" class="toolbar__statusbar" />
+		<View id="toolbarTitle" class="toolbar__title">
+			<Label id="labelTitle" class="title__title-label" autoStyle="true" />
+		</View>
+		<View id="appbarRight" class="appbar__right" dataCollection="$.rightIcons">
+			<View class="appbar__icon-wrapper" btnId="{id}" onClick="onClickRightIcon">
+				<ImageView class="icon-wrapper__image" image="{path}" />
+			</View>
+		</View>
+		<View id="appbarLeft" class="appbar__left" dataCollection="$.leftIcon">
+			<View class="appbar__icon-wrapper" onClick="onClickLeftIcon">
+				<ImageView class="icon-wrapper__image" image="{path}" />
+			</View>
+		</View>
+		<View id="toolbarTabs" class="toolbar__tabs" dataCollection="$.tabs">
+			<View class="tabs__tab" tabId="{id}" width="{tabWidth}" onClick="onClickTab">
+				<Label class="tab__label-tabname" text="{name}" />
+				<View class="tab__indicator" />
+			</View>
+		</View>
+	</View>
+</Alloy>

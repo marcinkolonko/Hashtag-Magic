@@ -2,8 +2,8 @@ exports.definition = {
 	config: {
 		columns: {
 		    name: 'text',
-		    tag_ids: 'text',
-		    flagSelected: 'real'
+		    sortKey: 'integer',
+		    flagSelected: 'integer'
 		},
 		defaults:{
 			flagSelected:0
@@ -15,7 +15,6 @@ exports.definition = {
 	},
 	extendModel: function(Model) {
 		_.extend(Model.prototype, {
-			// extended functions and properties go here
 		});
 
 		return Model;

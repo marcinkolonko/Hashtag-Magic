@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>ch.kolonko.ig_hashtagmagic</id>
     <name>Hashtag Magic</name>
-    <version>1.1.4</version>
+    <version>1.1.6</version>
     <publisher>marcin</publisher>
     <url/>
     <description/>
@@ -39,16 +39,15 @@
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
                 <key>CFBundleVersion</key>
-                <string>9</string>
+                <string>13</string>
             </dict>
         </plist>
     </ios>
-    <property name="app-version-code" type="string">9</property>
+    <property name="app-version-code" type="string">13</property>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="9" package="ch.kolonko.ig_hashtagmagic">
+        <manifest android:versionCode="13" package="ch.kolonko.ig_hashtagmagic">
             <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27"/>
-            <application android:debuggable="false"
-                android:icon="@drawable/appicon"
+            <application android:icon="@drawable/appicon"
                 android:label="Hashtag Magic"
                 android:name="HashtagMagicApplication"
                 android:resizeableActivity="false" android:theme="@style/Theme.HashtagMagic">

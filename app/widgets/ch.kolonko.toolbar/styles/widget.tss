@@ -1,0 +1,94 @@
+'.toolbar':{
+	top: 0,
+	zIndex: 10,
+	backgroundColor: 'white',
+	elevation: Alloy.Globals.Elevation.APPBAR
+}
+'.toolbar[platform=ios]':{
+	viewShadowColor: Alloy.Globals.Colors.BLACK_70,
+	viewShadowOffset: {x:0,y:2},
+	viewShadowRadius: 4
+}
+
+'.toolbar__statusbar':{
+	top: 0,
+	height: Alloy.Globals.Dimensions.STATUSBAR_HEIGHT,
+	backgroundColor: Alloy.Globals.Colors.PRIMARY_DARK
+}
+'.toolbar__statusbar--translucent':{
+	backgroundColor: Alloy.Globals.Colors.PRIMARY
+}
+
+'.appbar__right':{
+	top: Alloy.Globals.Dimensions.STATUSBAR_HEIGHT,
+	right: 8,
+	visible: false,
+	layout: 'horizontal',
+	width: Titanium.UI.SIZE,
+	height: Alloy.Globals.Dimensions.APPBAR_HEIGHT
+}
+
+'.appbar__left':{
+	top: Alloy.Globals.Dimensions.STATUSBAR_HEIGHT,
+	left: 8,
+	layout: 'horizontal',
+	width: Titanium.UI.SIZE,
+	height: Alloy.Globals.Dimensions.APPBAR_HEIGHT
+}
+
+'.appbar__icon-wrapper':{
+	top: 8,
+	width: 40,
+	height: 40
+}
+
+'.icon-wrapper__image':{
+	width: 24,
+	height: 24,
+	opacity: 0.7,
+	touchEnabled: false
+}
+
+'.toolbar__title':{
+	top: Alloy.Globals.Dimensions.STATUSBAR_HEIGHT,
+	height: Alloy.Globals.Dimensions.APPBAR_HEIGHT,
+	touchEnabled: false
+}
+
+'.title__title-label':{
+	left: 16,
+	color: Alloy.Globals.Colors.PRIMARY_DARK,
+	font: {
+		fontSize: Alloy.Globals.Font.TITLE,
+		fontFamily: 'Roboto-Regular'
+	}
+}
+'.title__title-label--extended':{
+	left: 70,
+}
+'.title__title-label--light':{
+	color: 'white'
+}
+
+'.toolbar__tabs':{
+	height: Alloy.Globals.Dimensions.TABS_HEIGHT,
+	layout: 'horizontal'
+}
+
+'.tabs__tab':{}
+
+'.tab__label-tabname':{
+	bottom: 5,
+	font: { fontSize: Alloy.Globals.Font.SUBHEADING },
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	touchEnabled: false,
+	color: Alloy.Globals.Colors.FONT_LIGHT
+}
+
+'.tab__indicator':{
+	height: 2,
+	bottom: 0,
+	backgroundColor: Alloy.Globals.Colors.ACCENT,
+	visible: false,
+	touchEnabled: false
+}

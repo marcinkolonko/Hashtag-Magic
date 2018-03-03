@@ -3,10 +3,10 @@ var _dialogCtrl;
 
 (function(){
 	$.appVersion.text = 'v' + Ti.App.version + (ENV_TEST || ENV_DEV ? '-' + Ti.App.Properties.getString('app-version-code') : '');
-	
+
 	$.index.addEventListener("android:back", function(e){
 		e.cancelBubble = true;
-		
+
 		if(Alloy.Globals.Backstack.length < 1){
 			$.index.close();
 		}
@@ -14,14 +14,14 @@ var _dialogCtrl;
 			(Alloy.Globals.Backstack.pop())();
 		}
 	});
-	
+
 	if(OS_IOS) $.alertDialog.style = Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT;
-	
+
 	Alloy.Collections.hashtags.on('change', toggleEmpty);
 	Alloy.Collections.hashtags.trigger('change');
-	
+
 	filterByGroup();
-	
+
 	$.favoritesDropdown.setSelected(Alloy.Collections.groups.where({flagSelected:1}).map(function(group){
 		return group.get('name');
 	}).join(', '));
@@ -36,7 +36,7 @@ function onPostLayout(e)
 		duration:500,
 		delay:500
 	});
-	
+
 	$.hashtagBox.height = $.hashtagBox.size.height - 16;
 	toggleEmpty();
 }
@@ -57,16 +57,16 @@ function onCreateHashtag(e)
 function createHashtag(tag)
 {
 	var model = _.find(Alloy.Collections.hashtags.models, function(model){
-		return model.get('label') === tag;
+		return model.get('name') === tag;
 	});
 	if(model === undefined){
-		model = Alloy.createModel('Hashtag',{label:tag});
+		model = Alloy.createModel('Hashtag',{name:tag});
 		model.save();
 		console.log(model.id);
 		Alloy.Collections.hashtags.add(model, {silent:true});
-		
+
 		Alloy.Collections.groups.where({flagSelected:true}).forEach(function(group){
-			group.save({tag_ids:group.get('tag_ids') + ',' + model.id});
+			Alloy.createModel('HashtagGroup_Hashtag', {tagId:model.id,groupId:group.id}).save();
 		});
 	}
 }
@@ -74,7 +74,7 @@ function createHashtag(tag)
 function toggleEmpty(n)
 {
 	n = Alloy.Collections.hashtags.length;
-	
+
 	if(n > 0 && $.imgEmptyHashtag.visible){
 		$.imgEmptyHashtag.visible = false;
 		$.imgEmptyHashtag.opacity = 0;
@@ -115,8 +115,7 @@ function onCloseGroupDialog(e)
 	_dialogCtrl.off();
 	_dialogCtrl.cleanup();
 	_dialogCtrl = null;
-	
-	filterByGroup();
+
 	var groups = Alloy.Collections.groups.where({flagSelected:1});
 	if(groups.length > 0){
 		$.favoritesDropdown.setSelected(groups.map(function(group){
@@ -126,8 +125,8 @@ function onCloseGroupDialog(e)
 	else{
 		$.favoritesDropdown.setSelected();
 	}
-	
-	Alloy.Collections.hashtags.trigger('change');
+
+	filterByGroup();
 }
 
 function filterByGroup()
@@ -137,7 +136,7 @@ function filterByGroup()
 		dict[tag.id] = true;
 		return dict;
 	},{});*/
-	
+
 	var groupsSelected = Alloy.Collections.groups.where({flagSelected:1});
 	if(groupsSelected.length > 0){
 		var ids = groupsSelected.reduce(function(all, model){
@@ -145,9 +144,12 @@ function filterByGroup()
 			return all;
 		},'');
 		ids = '"' + ids.slice(0,-1).replace(/,/g, '","') + '"';
-		
+
 		Alloy.Collections.hashtags.fetch({
-			query: 'select * from Hashtag where alloy_id in (' + ids + ')',
+			query: 'select * from Hashtag as tag where tag.alloy_id in (select tagId from HashtagGroup_Hashtag where groupId in (select alloy_id from HashtagGroup where flagSelected=1))',
+			success: function(){
+				Alloy.Collections.hashtags.trigger('change');
+			},
 			error:function(){
 				Alloy.Collections.hashtags.fetch();
 			}
@@ -157,6 +159,3 @@ function filterByGroup()
 		Alloy.Collections.hashtags.fetch();
 	}
 }
-
-
-

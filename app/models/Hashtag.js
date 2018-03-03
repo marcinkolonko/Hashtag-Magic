@@ -1,12 +1,11 @@
 exports.definition = {
 	config: {
 		columns: {
-		    label: 'text',
-		    mediaCount: 'real',
-		    flagSelected: 'real'
+		    name: 'text',
+		    sortKey: 'integer',
+		    flagSelected: 'integer'
 		},
 		defaults: {
-            mediaCount: 0,
 		    flagSelected: 0
         },
 		adapter: {

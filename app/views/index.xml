@@ -8,7 +8,7 @@
 				<ScrollView>
 					<Widget id="hashtagInput" src="ch.kolonko.hashtagmagic.input" bottom="6" onClick="onCreateHashtag" />
 					<View id="availableHashtagContainer" class="hashtag-container" dataCollection="Alloy.Collections.hashtags">
-						<Widget src="ch.kolonko.textchip" modelId="{alloy_id}" label="{label}" />
+						<Widget src="ch.kolonko.textchip" modelId="{alloy_id}" label="{name}" />
 					</View>
 				</ScrollView>
 				<ImageView id="imgEmptyHashtag" class="img-empty" image="/images/img_empty.png" />

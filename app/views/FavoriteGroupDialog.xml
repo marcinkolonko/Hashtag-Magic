@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="favoriteGroupDialog">
+	<View>
 		<View class="dialog-background" onClick="onCancel" />
 		<View id="dialogContent" class="dialog-content">
 			<Widget id="groupInput" src="ch.kolonko.hashtagmagic.input" top="0" hint="ch_kolonko_hashtagmagic_hint_group" onClick="onCreateGroup" />
@@ -30,7 +30,7 @@
 					</ItemTemplate>
 				</Templates>
 				<ListSection dataCollection="Alloy.Collections.groups" dataTransform="dataTransform">
-					<ListItem template="{template}" backgroundColor="{backgroundColor}" optionIcon:color="{iconColor}" optionLabel:text="{label}" />
+					<ListItem template="{template}" backgroundColor="{backgroundColor}" optionIcon:color="{iconColor}" optionLabel:text="{name}" />
 				</ListSection>
 			</ListView>
 			<View class="dialog-footer" bottom="0">

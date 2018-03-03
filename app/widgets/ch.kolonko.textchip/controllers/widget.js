@@ -50,7 +50,7 @@ function onClick(e)
 function addToClipboard()
 {
 	Ti.UI.Clipboard.setText(Alloy.Collections.hashtags.where({flagSelected:1}).reduce(function(total, model){
-		return total + '#'+model.get('label') + ' ';
+		return total + '#'+model.get('name') + ' ';
 	}, ''));
 }
 
