@@ -3,8 +3,7 @@
 		<View id="options">
 			<Widget id="favoriteIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onSaveToGroup" />
 			<Widget id="filterIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onFilterTags" />
-			<Widget id="stopIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onStopDelete" />
-			<Widget id="deleteIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onStartDelete" />
+			<Widget id="deleteIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onDelete" />
 			<Widget id="resetIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onReset" />
 		</View>
 		<Widget id="clipbaordIconWidget" src="ch.kolonko.hashtagmagic.icon" onClick="onCopyToClipboard" />

@@ -4,17 +4,6 @@ var _dialogCtrl;
 (function(){
 	$.appVersion.text = 'v' + Ti.App.version + (ENV_TEST || ENV_DEV ? '-' + Ti.App.Properties.getString('app-version-code') : '');
 
-	$.index.addEventListener("android:back", function(e){
-		e.cancelBubble = true;
-
-		if(Alloy.Globals.Backstack.length < 1){
-			$.index.close();
-		}
-		else{
-			(Alloy.Globals.Backstack.pop())();
-		}
-	});
-
 	if(OS_IOS) $.alertDialog.style = Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT;
 
 	Alloy.Collections.hashtags.on('change', toggleEmpty);
@@ -56,17 +45,12 @@ function onCreateHashtag(e)
 
 function createHashtag(tag)
 {
-	var model = _.find(Alloy.Collections.hashtags.models, function(model){
-		return model.get('name') === tag;
-	});
-	if(model === undefined){
-		model = Alloy.createModel('Hashtag',{name:tag});
-		model.save();
-		console.log(model.id);
+	if(Alloy.Collections.hashtags.where({name:tag}).length < 1){
+		var model = Alloy.createModel('Hashtag').save({name:tag});
 		Alloy.Collections.hashtags.add(model, {silent:true});
 
-		Alloy.Collections.groups.where({flagSelected:true}).forEach(function(group){
-			Alloy.createModel('HashtagGroup_Hashtag', {tagId:model.id,groupId:group.id}).save();
+		Alloy.Collections.groups.where({flagSelected:1}).forEach(function(group){
+			Alloy.createModel('HashtagGroup_Hashtag').save({tagId:model.id,groupId:group.id});
 		});
 	}
 }
@@ -131,28 +115,10 @@ function onCloseGroupDialog(e)
 
 function filterByGroup()
 {
-	// TODO: keep selection
-	/*var hashmap = Alloy.Collections.hashtags.where({flagSelected:1}).reduce(function(dict, tag){
-		dict[tag.id] = true;
-		return dict;
-	},{});*/
-
 	var groupsSelected = Alloy.Collections.groups.where({flagSelected:1});
 	if(groupsSelected.length > 0){
-		var ids = groupsSelected.reduce(function(all, model){
-			if(model.has('tag_ids')) all += model.get('tag_ids') + ',';
-			return all;
-		},'');
-		ids = '"' + ids.slice(0,-1).replace(/,/g, '","') + '"';
-
 		Alloy.Collections.hashtags.fetch({
 			query: 'select * from Hashtag as tag where tag.alloy_id in (select tagId from HashtagGroup_Hashtag where groupId in (select alloy_id from HashtagGroup where flagSelected=1))',
-			success: function(){
-				Alloy.Collections.hashtags.trigger('change');
-			},
-			error:function(){
-				Alloy.Collections.hashtags.fetch();
-			}
 		});
 	}
 	else{

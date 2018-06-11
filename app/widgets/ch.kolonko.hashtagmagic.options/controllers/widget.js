@@ -48,18 +48,6 @@ var _args = arguments[0] || {};
 			text: '\ue872'
 		}
 	});
-	$.stopIconWidget.applyProperties({
-		icon:{
-			left:0,
-			visible: false,
-			backgroundColor: '#ff0000',
-			touchFeedbackColor: 'pink'
-		},
-		label:{
-			color: '#fff',
-			text: '\ue14b'
-		}
-	});
 	
 	showOptions();
 })();
@@ -98,27 +86,28 @@ function onReset(e)
 	reset();
 }
 
-function onStartDelete(e)
+function onDelete(e)
 {
-	Ti.UI.Clipboard.clearText();
-	Alloy.Globals.flagDelete = true;
-	Alloy.Collections.hashtags.trigger('change');
+	var db = Ti.Database.open('_alloy_');
 	
-	$.deleteIconWidget.reset(true);
-	$.stopIconWidget.getView().left = 140;
-	$.stopIconWidget.getView().visible = true;
-}
+	if(Alloy.Collections.groups.where({flagSelected:1}).length > 0){
+		db.execute('delete from HashtagGroup_Hashtag where groupId in (SELECT alloy_id FROM HashtagGroup WHERE flagSelected=1) and tagId in (select alloy_id from Hashtag where flagSelected=1);');
+		Alloy.Collections.group_tag.fetch();
+	}
+	else{
+		db.execute('delete from HashtagGroup_Hashtag where tagId in (select alloy_id from Hashtag where flagSelected=1);');
+		db.execute('delete from Hashtag where flagSelected=1;');
+	}
+	db.close();
 
-function onStopDelete(e)
-{
-	Alloy.Globals.flagDelete = false;
-	Alloy.Collections.hashtags.trigger('change');
-	
-	setTimeout(function(){
-		$.stopIconWidget.reset(true);
-		$.deleteIconWidget.getView().left = 140;
-		$.deleteIconWidget.getView().visible = true;
-	},300);
+	if(Alloy.Collections.groups.where({flagSelected:1}).length > 0){
+		Alloy.Collections.hashtags.fetch({
+			query: 'select * from Hashtag as tag where tag.alloy_id in (select tagId from HashtagGroup_Hashtag where groupId in (select alloy_id from HashtagGroup where flagSelected=1));'
+		});
+	}
+	else{
+		Alloy.Collections.hashtags.fetch();
+	}
 }
 
 function reset()

@@ -3,8 +3,6 @@ var _selected;
 
 (function(){
 	$.cleanup = cleanup;
-	
-	Alloy.Globals.Backstack.push(androidBack);
 	Alloy.Collections.group_tag.fetch();
 	
 	if(Alloy.Collections.groups.length < 1){
@@ -149,7 +147,6 @@ function reset()
 
 function hide()
 {
-	Alloy.Globals.Backstack.pop();
 	$.trigger('close');
 }
 

@@ -60,14 +60,9 @@ Alloy.Globals.Events = {
 	ANDROID_BACK: 'event_android_back'
 };
 
-Alloy.Globals.Backstack = [];
-
 Alloy.Collections.groups = Alloy.createCollection('HashtagGroup');
 Alloy.Collections.groups.fetch();
 Alloy.Collections.hashtags = Alloy.createCollection('Hashtag');
-/*Alloy.Collections.hashtags.comparator = function(tag) {
-  return tag.get('sortKey');
-};*/
 Alloy.Collections.hashtags.fetch();
 Alloy.Collections.group_tag = Alloy.createCollection('HashtagGroup_Hashtag');
 Alloy.Collections.group_tag.fetch();
